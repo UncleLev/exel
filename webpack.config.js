@@ -15,13 +15,13 @@ const jsLoaders = () => {
             options: { presets: ["@babel/preset-env"] },
         },
     ];
-    if(isDev) {
-        return loaders.push('eslint-loader')
+    if (isDev) {
+        loaders.push("eslint-loader");
     }
 
     return loaders;
 };
-// const {} = require('')
+
 module.exports = {
     context: path.resolve(__dirname, "src"),
     mode: "development",
@@ -39,7 +39,7 @@ module.exports = {
     },
     devtool: isDev ? "source-map" : null,
     devServer: {
-        port: 3000,
+        port: 3001,
         hot: isDev,
     },
     plugins: [
@@ -80,10 +80,6 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: jsLoaders(),
-                loader: {
-                    loader: "babel-loader",
-                    options: { presets: ["@babel/preset-env"] },
-                },
             },
         ],
     },
